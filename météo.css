@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+.container {
+  width: 90%;
+  max-width: 470px;
+  margin: 100px auto 10px;
+  padding: 40px 35px;
+  border-radius: 20px;
+  background-color: #d9afd9;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  text-align: center;
+  color: #ebfffc;
+}
+
+.questionnaire {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.questionnaire input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
+}
+
+.questionnaire button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.questionnaire button img {
+  width: 16px;
+}
+
+.infos h1 {
+  font-size: 80px;
+  font-weight: 500;
+}
+.infos h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.weather-icon {
+  width: 170px;
+  margin-top: 30px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.humidite,
+.vent {
+  font-size: 28px;
+  margin-top: -6px;
+}
