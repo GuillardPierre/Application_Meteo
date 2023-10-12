@@ -99,3 +99,8 @@ h1 {
   font-size: 28px;
   margin-top: -6px;
 }
+
+.error {
+  padding-top: 5px;
+  display: none;
+}

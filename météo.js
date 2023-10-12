@@ -1,6 +1,7 @@
 const inputZone = document.querySelector(".nomDeVille");
 const btnSubmit = document.querySelector(".submit");
 const zoneInfos = document.querySelector(".infos");
+const messageErreur = document.querySelector(".error");
 zoneInfos.style.display = "none";
 
 const zoneImage = document.querySelector(".weather-icon");
@@ -30,6 +31,7 @@ function fetchResult(url) {
       if (!result.ok) {
         throw new Error(`Erreur HTTP! Statut : ${result.status}`);
       }
+      console.log(result);
       return result.json();
     })
     .catch((err) => {
@@ -50,24 +52,31 @@ function majAffichage(donnees) {
   affichageNomVille.innerHTML = nom;
   affichageHumidite.innerHTML = humidite;
   affichageVent.innerHTML = vent;
-  inputZone.value = "";
-  inputZone.focus();
 }
 
 btnSubmit.addEventListener("click", () => {
-  if (zoneInfos.style.display === "none") {
-    zoneInfos.style.display = "inline";
-  }
+  // if (zoneInfos.style.display === "none") {
+  //   zoneInfos.style.display = "inline";
+  // }
   let url1 = `${url[0]}${inputZone.value}${url[1]}`;
   villeCherchee = inputZone.value;
   fetchResult(url1).then((result) => {
     console.log(result);
+    if (result.length === 0) {
+      messageErreur.style.display = "block";
+      inputZone.value = "";
+      inputZone.focus();
+    } else {
+      messageErreur.style.display = "none";
+      zoneInfos.style.display = "inline";
+    }
     lat = result[0].lat;
     lon = result[0].lon;
     let url2 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=8625c99bafcf31e818141fd601069d02&lang=fr&units=metric`;
     fetchResult(url2).then((result) => {
       console.log(result);
       majAffichage(result);
+      inputZone.value = "";
     });
   });
 });
